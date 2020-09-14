@@ -1,0 +1,360 @@
+{
+    "type": 0,
+    "message": "错误",
+    "value": [{
+            "CollName": "Common",
+            "Action": [{
+                    "actionname": "CreateRotation",
+                    "descrption": "测试轮播图",
+                    "path": "api/Common/CreateRotation"
+                },
+                {
+                    "actionname": "CreateMessage",
+                    "descrption": "添加快递公司",
+                    "path": "api/Common/CreateMessage"
+                },
+                {
+                    "actionname": "EditCouponList",
+                    "descrption": "修改优惠券图标",
+                    "path": "api/Common/EditCouponList"
+                },
+                {
+                    "actionname": "GetList",
+                    "descrption": "获取列表",
+                    "path": "api/Common/GetList?businesstype={businesstype}"
+                },
+                {
+                    "actionname": "CreateList",
+                    "descrption": "创建城市数据",
+                    "path": "api/Common/CreateList"
+                }
+            ]
+        },
+        {
+            "CollName": "Address",
+            "Action": [{
+                "actionname": "GetAddress",
+                "descrption": "获取所有的城市地址",
+                "path": "api/Address/GetAddress"
+            }]
+        },
+        {
+            "CollName": "FileUpLoad",
+            "Action": [{
+                    "actionname": "PostFiles",
+                    "descrption": "上传文件",
+                    "path": "api/FileUpLoad/PostFiles"
+                },
+                {
+                    "actionname": "DownLoadFileByFileId",
+                    "descrption": "下载文件",
+                    "path": "api/FileUpLoad/DownLoadFileByFileId?FileId={FileId}"
+                }
+            ]
+        },
+        {
+            "CollName": "Coupon",
+            "Action": [{
+                    "actionname": "CreateType",
+                    "descrption": "插入一条优惠券商家",
+                    "path": "api/Coupon/CreateType"
+                },
+                {
+                    "actionname": "CreateTypeList",
+                    "descrption": "批量插入优惠券商家",
+                    "path": "api/Coupon/CreateTypeList"
+                },
+                {
+                    "actionname": "GetList",
+                    "descrption": "获取主页美食购物特惠列表",
+                    "path": "api/Coupon/GetList"
+                },
+                {
+                    "actionname": "GetQuery",
+                    "descrption": "查询数据",
+                    "path": "api/Coupon/GetQuery?query={query}"
+                },
+                {
+                    "actionname": "GetListByBusinessTypeId",
+                    "descrption": "根据商户类别Id获取该id下所有的优惠攻略",
+                    "path": "api/Coupon/GetListByBusinessTypeId?TypeId={TypeId}"
+                }
+            ]
+        },
+        {
+            "CollName": "Express",
+            "Action": [{
+                "actionname": "GetExpress",
+                "descrption": "获取公司",
+                "path": "api/Express/GetExpress"
+            }]
+        },
+        {
+            "CollName": "BusinessType",
+            "Action": [{
+                    "actionname": "CreateType",
+                    "descrption": "插入一条优惠券商家类型",
+                    "path": "api/BusinessType/CreateType"
+                },
+                {
+                    "actionname": "CreateTypeList",
+                    "descrption": "插入一条优惠券商家类型",
+                    "path": "api/BusinessType/CreateTypeList"
+                },
+                {
+                    "actionname": "GetList",
+                    "descrption": "获取数据",
+                    "path": "api/BusinessType/GetList"
+                }
+            ]
+        },
+        {
+            "CollName": "FileDownLoad",
+            "Action": [{
+                "actionname": "DownLoadFileByFileId",
+                "descrption": "下载文件",
+                "path": "api/FileDownLoad/DownLoadFileByFileId?FileId={FileId}"
+            }]
+        },
+        {
+            "CollName": "MarketDetail",
+            "Action": [{
+                    "actionname": "GetDetial",
+                    "descrption": "根据超市主键获取超市详细信息",
+                    "path": "api/MarketDetail/GetDetial?MarketId={MarketId}"
+                },
+                {
+                    "actionname": "CreateData",
+                    "descrption": "添加商超详细信息",
+                    "path": "api/MarketDetail/CreateData"
+                },
+                {
+                    "actionname": "EditMarketDetail",
+                    "descrption": "修改超市详情数据",
+                    "path": "api/MarketDetail/EditMarketDetail"
+                },
+                {
+                    "actionname": "DiscountQrCode",
+                    "descrption": "获取优惠条码以及二维码",
+                    "path": "api/MarketDetail/DiscountQrCode?MarketId={MarketId}"
+                }
+            ]
+        },
+        {
+            "CollName": "UserLogin",
+            "Action": [{
+                    "actionname": "Login",
+                    "descrption": "用户登录返回tokne",
+                    "path": "api/UserLogin/Login"
+                },
+                {
+                    "actionname": "LoginOut",
+                    "descrption": "退出登录",
+                    "path": "api/UserLogin/LoginOut"
+                },
+                {
+                    "actionname": "GetEncrypt",
+                    "descrption": "加密",
+                    "path": "api/UserLogin/GetEncrypt"
+                },
+                {
+                    "actionname": "UserRegister",
+                    "descrption": "用户注册",
+                    "path": "api/UserLogin/UserRegister"
+                },
+                {
+                    "actionname": "UserNameCheck",
+                    "descrption": "检查用户名",
+                    "path": "api/UserLogin/UserNameCheck?UserName={UserName}"
+                }
+            ]
+        },
+        {
+            "CollName": "CouponOrder",
+            "Action": [{
+                    "actionname": "SetCouponOrder",
+                    "descrption": "添加优惠券购物车",
+                    "path": "api/CouponOrder/SetCouponOrder"
+                },
+                {
+                    "actionname": "RemoveCouponOrder",
+                    "descrption": "移除优惠券订单",
+                    "path": "api/CouponOrder/RemoveCouponOrder/{id}"
+                },
+                {
+                    "actionname": "GetCouponOrder",
+                    "descrption": "获取所有订单列表",
+                    "path": "api/CouponOrder/GetCouponOrder"
+                },
+                {
+                    "actionname": "CheckOrderState",
+                    "descrption": "检测订单状态",
+                    "path": "api/CouponOrder/CheckOrderState?orderno={orderno}"
+                },
+                {
+                    "actionname": "UseCoupon",
+                    "descrption": "使用优惠券",
+                    "path": "api/CouponOrder/UseCoupon?orderid={orderid}"
+                }
+            ]
+        },
+        {
+            "CollName": "Order",
+            "Action": [{
+                    "actionname": "CartsOrder",
+                    "descrption": "购物车订单",
+                    "path": "api/Order/CartsOrder"
+                },
+                {
+                    "actionname": "OrderState",
+                    "descrption": "获取订单状态数量",
+                    "path": "api/Order/OrderState"
+                },
+                {
+                    "actionname": "OrderDetail",
+                    "descrption": "查看订单详情",
+                    "path": "api/Order/OrderDetail?orderstate={orderstate}"
+                },
+                {
+                    "actionname": "SetExpressInfo",
+                    "descrption": "添加物流信息",
+                    "path": "api/Order/SetExpressInfo"
+                },
+                {
+                    "actionname": "CheckPayment",
+                    "descrption": "检查付款状态",
+                    "path": "api/Order/CheckPayment?orderno={orderno}"
+                },
+                {
+                    "actionname": "RemoveOrder",
+                    "descrption": "移除订单",
+                    "path": "api/Order/RemoveOrder?orderid={orderid}"
+                },
+                {
+                    "actionname": "GetAllUserOder",
+                    "descrption": "获取所有用户订单",
+                    "path": "api/Order/GetAllUserOder"
+                },
+                {
+                    "actionname": "PaymentByNoPayOrder",
+                    "descrption": "待付款订单下单",
+                    "path": "api/Order/PaymentByNoPayOrder?orderid={orderid}"
+                },
+                {
+                    "actionname": "OrderByCommodity",
+                    "descrption": "商品页面直接下单",
+                    "path": "api/Order/OrderByCommodity"
+                },
+                {
+                    "actionname": "GetOrderInfomation",
+                    "descrption": "获取订单详情信息",
+                    "path": "api/Order/GetOrderInfomation?orderid={orderid}"
+                },
+                {
+                    "actionname": "GetPaymentBack",
+                    "descrption": "获取回调修改订单状态为已付款",
+                    "path": "api/Order/GetPaymentBack"
+                }
+            ]
+        },
+        {
+            "CollName": "CouponDetail",
+            "Action": [{
+                    "actionname": "GetCouponList",
+                    "descrption": "根据商家获取优惠券列表",
+                    "path": "api/CouponDetail/GetCouponList?CouponId={CouponId}"
+                },
+                {
+                    "actionname": "GetCouponDetail",
+                    "descrption": "",
+                    "path": "api/CouponDetail/GetCouponDetail?couponid={couponid}"
+                },
+                {
+                    "actionname": "Create",
+                    "descrption": "创建一条数据",
+                    "path": "api/CouponDetail/Create"
+                },
+                {
+                    "actionname": "GetListByPager",
+                    "descrption": "分页获取优惠券数据列表",
+                    "path": "api/CouponDetail/GetListByPager?PageIndex={PageIndex}&PageRows={PageRows}"
+                }
+            ]
+        },
+        {
+            "CollName": "HomePage",
+            "Action": [{
+                    "actionname": "GetTitle",
+                    "descrption": "获取标头信息",
+                    "path": "api/HomePage/GetTitle"
+                },
+                {
+                    "actionname": "GetHttpAction",
+                    "descrption": "返回精选推荐",
+                    "path": "api/HomePage/GetHttpAction"
+                },
+                {
+                    "actionname": "GetCommodityList",
+                    "descrption": "获取首页商品列表",
+                    "path": "api/HomePage/GetCommodityList?pageindex={pageindex}&pagerows={pagerows}&query={query}"
+                },
+                {
+                    "actionname": "GetCommodityByTitle",
+                    "descrption": "查询数据",
+                    "path": "api/HomePage/GetCommodityByTitle?pageindex={pageindex}&pagerows={pagerows}&sourceid={sourceid}"
+                }
+            ]
+        },
+        {
+            "CollName": "Carts",
+            "Action": [{
+                    "actionname": "SetCart",
+                    "descrption": "添加购物车",
+                    "path": "api/Carts/SetCart"
+                },
+                {
+                    "actionname": "GetCart",
+                    "descrption": "获取购物车",
+                    "path": "api/Carts/GetCart"
+                },
+                {
+                    "actionname": "ChangeCartsNum",
+                    "descrption": "更改商品数量",
+                    "path": "api/Carts/ChangeCartsNum?CartsId={CartsId}&Num={Num}"
+                },
+                {
+                    "actionname": "RemoveCart",
+                    "descrption": "删除购物车",
+                    "path": "api/Carts/RemoveCart?cartsId={cartsId}"
+                }
+            ]
+        },
+        {
+            "CollName": "SysModule",
+            "Action": [{
+                "actionname": "GetModule",
+                "descrption": "获取系统模块列表",
+                "path": "api/SysModule/GetModule"
+            }]
+        },
+        {
+            "CollName": "SysMenu",
+            "Action": [{
+                    "actionname": "SetSysMenu",
+                    "descrption": "添加列表菜单",
+                    "path": "api/SysMenu/SetSysMenu"
+                },
+                {
+                    "actionname": "GetSysMenu",
+                    "descrption": "获取树表",
+                    "path": "api/SysMenu/GetSysMenu"
+                },
+                {
+                    "actionname": "GetHomeMenu",
+                    "descrption": "获取商城主页订单信息",
+                    "path": "api/SysMenu/GetHomeMenu"
+                }
+            ]
+        }
+    ]
+}
