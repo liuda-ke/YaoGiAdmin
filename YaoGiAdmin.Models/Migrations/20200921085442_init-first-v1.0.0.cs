@@ -43,7 +43,8 @@ namespace YaoGiAdmin.Models.Migrations
                     IsDel = table.Column<int>(type: "INT", nullable: false),
                     TableName = table.Column<string>(type: "NVARCHAR(200)", nullable: true),
                     TableCNName = table.Column<string>(type: "NVARCHAR(200)", nullable: true),
-                    Descrption = table.Column<string>(type: "NVARCHAR(500)", nullable: true)
+                    Descrption = table.Column<string>(type: "NVARCHAR(500)", nullable: true),
+                    IsGenerate = table.Column<int>(type: "INT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,7 +72,7 @@ namespace YaoGiAdmin.Models.Migrations
                     ColumnType = table.Column<string>(type: "NVARCHAR(50)", nullable: true),
                     OldColumnType = table.Column<string>(type: "NVARCHAR(50)", nullable: true),
                     Description = table.Column<string>(type: "NVARCHAR(50)", nullable: true),
-                    GenerateTablesId = table.Column<Guid>(nullable: false)
+                    GenerateTablesId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -81,7 +82,7 @@ namespace YaoGiAdmin.Models.Migrations
                         column: x => x.GenerateTablesId,
                         principalTable: "GenerateTables",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_GenerateColumns_SysUser_SysUserId",
                         column: x => x.SysUserId,

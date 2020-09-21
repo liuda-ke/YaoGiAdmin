@@ -23,8 +23,6 @@ namespace YaoGiAdmin.Models.Tools
         [Column(TypeName = "NVARCHAR(50)")]
         public string Description { get; set; }
         
-        public Guid GenerateTablesId { get; set; }
-
         public  GenerateTables GenerateTables { get; set; }
 
     }

@@ -9,7 +9,7 @@ namespace YaoGiAdmin.Models.Jwt
     public class LoginRequestDTO
     {
         [Required]
-        public string Username { get; set; }
+        public string Account { get; set; }
 
 
         [Required]

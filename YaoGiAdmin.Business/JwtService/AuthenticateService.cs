@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using YaoGiAdmin.Business.IJwtService;
 using YaoGiAdmin.Business.IService;
+using YaoGiAdmin.Lib;
 using YaoGiAdmin.Models;
 using YaoGiAdmin.Models.Jwt;
 
@@ -24,16 +25,30 @@ namespace YaoGiAdmin.Business.JwtService
             _sysUser = sysUser;
 
         }
-        public bool IsAuthenticated(LoginRequestDTO request, out string token)
+        public Response IsAuthenticated(LoginRequestDTO request, out string token)
         {
-
+            Response res = new Response();
 
             token = string.Empty;
-            if (!_sysUser.IsValid(request.Username, request.Password))
-                return false;
+            var sys = _sysUser.ResponseToken(request);
+            if (sys == null)
+            {
+                res.Code = 2;
+                res.Message = "该用户不存在";
+                return res;
+            }
+
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name,request.Username)
+                new Claim(JwtRegisteredClaimNames.Sub,sys.UserAccount),
+                new Claim(JwtRegisteredClaimNames.Jti, sys.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToUniversalTime().ToString(),ClaimValueTypes.Integer64),
+                new Claim(JwtRegisteredClaimNames.Sid,sys.Id.ToString()),
+               //用户名
+                //new Claim(ClaimTypes.Name,request.Account),
+                new Claim(ClaimTypes.Name,"你好"),
+                //角色
+                new Claim(ClaimTypes.Role,"a")
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -41,7 +56,11 @@ namespace YaoGiAdmin.Business.JwtService
                 expires: DateTime.Now.AddMinutes(_tokenManagement.AccessExpiration),
                 signingCredentials: credentials);
             token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
-            return true;
+            sys.UserPassword = "";
+            var result = new { user = sys.UserName, token = token };
+            res.Code = 1;
+            res.Data = result;
+            return res;
 
         }
     }

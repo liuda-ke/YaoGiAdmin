@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using YaoGiAdmin.Business.IService;
 using YaoGiAdmin.Lib;
 using YaoGiAdmin.Models;
+using YaoGiAdmin.Models.Jwt;
 using YaoGiAdmin.Models.Sys;
 
 namespace YaoGiAdmin.Business.Service
@@ -26,11 +28,18 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
-                var data = await context.SysUser.Where(m => m.UserMobile == model.UserMobile).FirstOrDefaultAsync();
+                var data = await context.SysUser.Where(m => m.UserMobile == model.UserMobile&&m.IsDel==0).FirstOrDefaultAsync();
                 if (data != null)
                 {
                     res.Code = 3;
                     res.Message = "该手机号码已经被注册";
+                    return res;
+                }
+                var data1 = await context.SysUser.Where(m=>m.UserAccount == model.UserAccount && m.IsDel == 0).FirstOrDefaultAsync();
+                if (data1 != null)
+                {
+                    res.Code = 3;
+                    res.Message = "该用户已存在";
                     return res;
                 }
                 model.CreateTime = DateTime.Now;
@@ -47,6 +56,7 @@ namespace YaoGiAdmin.Business.Service
             }
             return res;
         }
+
 
         public async Task<Response> UserLogin(string account, string password)
         {
@@ -69,9 +79,14 @@ namespace YaoGiAdmin.Business.Service
             return res;
         }
 
-        public bool IsValid(string account, string password)
+
+        public SysUser ResponseToken(LoginRequestDTO model)
         {
-            return true;
+            var data = context.SysUser.Where(m => m.UserAccount == model.Account && m.UserPassword == ValueConvert.MD5(model.Password)).FirstOrDefault();
+            if (data == null)
+                return null;
+            else
+                return data;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using YaoGiAdmin.Lib;
+using YaoGiAdmin.Models.Jwt;
 using YaoGiAdmin.Models.Sys;
 
 namespace YaoGiAdmin.Business.IService
@@ -12,6 +13,7 @@ namespace YaoGiAdmin.Business.IService
         Task<Response> RegisterUser(SysUser model);
 
         Task<Response> UserLogin(string account, string password);
-        bool IsValid(string account, string password);
+
+        SysUser ResponseToken(LoginRequestDTO model);
     }
 }

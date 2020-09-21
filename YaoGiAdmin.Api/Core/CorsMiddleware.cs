@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YaoGiAdmin.Lib;
 
 namespace YaoGiAdmin.Api
 {
@@ -28,6 +30,17 @@ namespace YaoGiAdmin.Api
                 {
                     context.Response.StatusCode = StatusCodes.Status200OK;
                     return;
+                }
+                var schemeProvider = context.RequestServices.GetService(typeof(IAuthenticationSchemeProvider)) as IAuthenticationSchemeProvider;
+                var defaultAuthenticate = await schemeProvider.GetDefaultAuthenticateSchemeAsync();
+                if (defaultAuthenticate != null)
+                {
+                    var result = await context.AuthenticateAsync(defaultAuthenticate.Name);
+                    var user = result?.Principal;
+                    if (user != null)
+                    {
+                       var account = user.Identity.Name;
+                    }
                 }
             }
 

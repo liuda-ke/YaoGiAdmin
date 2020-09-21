@@ -10,8 +10,8 @@ using YaoGiAdmin.Models;
 namespace YaoGiAdmin.Models.Migrations
 {
     [DbContext(typeof(BuildingDbContext))]
-    [Migration("20200910073519_init-first-v1.0.1")]
-    partial class initfirstv101
+    [Migration("20200921085442_init-first-v1.0.0")]
+    partial class initfirstv100
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,7 +92,7 @@ namespace YaoGiAdmin.Models.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("NVARCHAR(50)");
 
-                    b.Property<Guid>("GenerateTablesId")
+                    b.Property<Guid?>("GenerateTablesId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("IsDel")
@@ -163,9 +163,7 @@ namespace YaoGiAdmin.Models.Migrations
                 {
                     b.HasOne("YaoGiAdmin.Models.Tools.GenerateTables", "GenerateTables")
                         .WithMany("GenerateColumns")
-                        .HasForeignKey("GenerateTablesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GenerateTablesId");
 
                     b.HasOne("YaoGiAdmin.Models.Sys.SysUser", "SysUser")
                         .WithMany()

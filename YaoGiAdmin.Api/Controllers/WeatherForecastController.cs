@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using YaoGiAdmin.CodeGenerate;
 
 namespace YaoGiAdmin.Api.Controllers
 {
@@ -26,6 +27,8 @@ namespace YaoGiAdmin.Api.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            GenerateTableService generate = new GenerateTableService();
+            //generate.CreateTable();
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

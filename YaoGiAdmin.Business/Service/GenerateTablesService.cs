@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace YaoGiAdmin.Business.Service
                     res.Message = "该表已存在";
                     return res;
                 }
+
+
                 await context.GenerateTables.AddAsync(model);
                 await context.SaveChangesAsync();
 

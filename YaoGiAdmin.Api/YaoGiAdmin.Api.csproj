@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YaoGiAdmin.Business\YaoGiAdmin.Business.csproj" />
+    <ProjectReference Include="..\YaoGiAdmin.CodeGenerate\YaoGiAdmin.CodeGenerate.csproj" />
     <ProjectReference Include="..\YaoGiAdmin.Models\YaoGiAdmin.Models.csproj" />
   </ItemGroup>
 

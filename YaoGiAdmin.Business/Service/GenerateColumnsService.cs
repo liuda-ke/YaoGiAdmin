@@ -25,7 +25,8 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
-                var data = await context.GenerateColumns.Where(m => m.IsDel == 0 && m.GenerateTablesId == TableId).ToListAsync();
+                var data = await context.GenerateColumns.Where(m => m.IsDel == 0 && m.GenerateTables.Id == TableId).ToListAsync();
+                //var data1 = await context.GenerateColumns.Include(n => n.GenerateTables).Where(n => n.GenerateTables.Id == TableId).ToList();
                 if (data == null)
                 {
                     res.Code = 0;

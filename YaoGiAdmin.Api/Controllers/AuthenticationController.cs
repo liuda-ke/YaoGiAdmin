@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YaoGiAdmin.Business.IJwtService;
+using YaoGiAdmin.Lib;
 using YaoGiAdmin.Models.Jwt;
 
 namespace YaoGiAdmin.Api.Controllers
@@ -22,18 +23,25 @@ namespace YaoGiAdmin.Api.Controllers
         [AllowAnonymous]
         public ActionResult RequestToken([FromBody] LoginRequestDTO request)
         {
+            Response res = new Response();
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid Request");
+                res.Code = 2;
+                res.Message = "验证失败";
+                return BadRequest(res);
             }
 
             string token;
-            if (_authenticateService.IsAuthenticated(request, out token))
+            res = _authenticateService.IsAuthenticated(request, out token);
+            if (res.Code==1)
             {
-                return Ok(token);
+                return Ok(res);
+            }
+            else
+            {
+                return BadRequest(res);
             }
 
-            return BadRequest("Invalid Request");
         }
     }
 }
