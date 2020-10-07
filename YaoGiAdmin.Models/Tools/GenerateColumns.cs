@@ -6,13 +6,16 @@ using YaoGiAdmin.Models.Common;
 
 namespace YaoGiAdmin.Models.Tools
 {
-    public class GenerateColumns : BaseColumnModel
+    public partial class GenerateColumns : BaseColumnModel
     {
         [Column(TypeName = "NVARCHAR(200)")]
         public string ColumnName { get; set; }
 
         [Column(TypeName = "NVARCHAR(200)")]
         public string OldColumnName { get; set; }
+
+        [Column(TypeName = "NVARCHAR(200)")]
+        public string ColumnCnName { get; set; }
 
         [Column(TypeName = "NVARCHAR(50)")]
         public string ColumnType { get; set; }

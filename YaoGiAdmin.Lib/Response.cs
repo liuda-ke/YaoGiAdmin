@@ -2,6 +2,7 @@
 
 namespace YaoGiAdmin.Lib
 {
+    [Serializable]
     public class Response
     {
         public Response()

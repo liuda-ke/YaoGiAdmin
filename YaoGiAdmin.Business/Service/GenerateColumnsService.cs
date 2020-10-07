@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ using YaoGiAdmin.Models.Tools;
 
 namespace YaoGiAdmin.Business.Service
 {
-    public class GenerateColumnsService : IGenerateColumnsService
+    public  class GenerateColumnsService : IGenerateColumnsService
     {
         BuildingDbContext context;
         public GenerateColumnsService(BuildingDbContext dbcontext)
@@ -26,7 +27,7 @@ namespace YaoGiAdmin.Business.Service
             try
             {
                 var data = await context.GenerateColumns.Where(m => m.IsDel == 0 && m.GenerateTables.Id == TableId).ToListAsync();
-                //var data1 = await context.GenerateColumns.Include(n => n.GenerateTables).Where(n => n.GenerateTables.Id == TableId).ToList();
+                //var data1 = await context.GenerateColumns.Include(n => n.GenerateTables).Where(n=> n.GenerateTables.Id == TableId&&n.IsDel==0).ToListAsync();
                 if (data == null)
                 {
                     res.Code = 0;
@@ -48,13 +49,21 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
-                var data =await context.GenerateColumns.Where(m => m.ColumnName == models.ColumnName).FirstOrDefaultAsync();
+                var tabledata = await context.GenerateTables.FirstOrDefaultAsync(m => m.Id == models.GenerateTablesId);
+                if (tabledata == null)
+                {
+                    res.Code = 3;
+                    res.Message = "该表存在无法添加字段";
+                    return res;
+                }
+                var data = context.GenerateColumns.FirstOrDefault(m => m.ColumnName == models.ColumnName);
                 if (data != null)
                 {
                     res.Code = 3;
                     res.Message = "该字段已存在";
                     return res;
                 }
+                models.GenerateTables = tabledata;
                 await context.GenerateColumns.AddAsync(models);
                 await context.SaveChangesAsync();
                 res.Data = models.Id;
