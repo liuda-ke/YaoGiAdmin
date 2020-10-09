@@ -1,7 +1,9 @@
 using Autofac;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,7 +27,7 @@ namespace YaoGiAdmin.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        //此方法由运行时调用。使用此方法可将服务添加到容器中
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers(options =>
@@ -59,24 +61,10 @@ namespace YaoGiAdmin.Api
                 };
             });
 
-
-
-
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("any", builder =>
-            //    {
-            //        builder.AllowAnyOrigin() //允许任何来源的主机访问
-            //       .AllowAnyMethod()
-            //       .AllowAnyHeader()
-            //       .AllowCredentials();//指定处理cookie
-            //    });
-            //});
-            //services.AddSingleton<ISysUserService, SysUserService>();//单例注入 一个实例
             services.AddSingleton(typeof(LoggerHelper));//注入日志
             services.AddDbContext<BuildingDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddScoped<ISysUserService, SysUserService>();//区域注入 每个线程是同一个实例
-            //services.AddTransient<ISysUserService, SysUserService>();//每块是一个实例
+
+
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -101,15 +89,14 @@ namespace YaoGiAdmin.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            //RequestFilter.httpContextAccessor.HttpContext = http ;
             app.UseMiddleware<CorsMiddleware>();
-                //app.UseMiddleware<CorsMiddleware>();
-            //app.UseCors("any");
+
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseRouting();
-            //app.UseCors("any");
             app.UseAuthorization();
-
+            UserCacheHelper.CreateInstance();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

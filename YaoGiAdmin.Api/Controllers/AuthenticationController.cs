@@ -43,5 +43,12 @@ namespace YaoGiAdmin.Api.Controllers
             }
 
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public Response JwtDecrypt(string jwtToken)
+        {
+            return _authenticateService.JwtDecrypt(jwtToken);
+        }
     }
 }

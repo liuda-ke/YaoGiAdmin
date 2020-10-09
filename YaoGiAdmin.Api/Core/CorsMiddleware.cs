@@ -26,6 +26,7 @@ namespace YaoGiAdmin.Api
                 context.Response.Headers.Add("Access-Control-Allow-Headers", context.Request.Headers["Access-Control-Request-Headers"]);
                 context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
 
+               
                 if (context.Request.Method.Equals("OPTIONS"))
                 {
                     context.Response.StatusCode = StatusCodes.Status200OK;

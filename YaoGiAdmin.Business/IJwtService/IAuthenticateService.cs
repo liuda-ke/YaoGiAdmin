@@ -9,5 +9,7 @@ namespace YaoGiAdmin.Business.IJwtService
     public interface IAuthenticateService
     {
         Response IsAuthenticated(LoginRequestDTO request, out string token);
+
+        Response JwtDecrypt(string token);
     }
 }

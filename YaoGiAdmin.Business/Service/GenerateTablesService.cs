@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Threading.Tasks;
 using YaoGiAdmin.Business.IService;
 using YaoGiAdmin.Lib;
 using YaoGiAdmin.Models;
+using YaoGiAdmin.Models.Jwt;
+using YaoGiAdmin.Models.Sys;
 using YaoGiAdmin.Models.Tools;
 
 namespace YaoGiAdmin.Business.Service
@@ -15,9 +18,11 @@ namespace YaoGiAdmin.Business.Service
     public class GenerateTablesService : IGenerateTablesService
     {
         BuildingDbContext context;
-        public GenerateTablesService(BuildingDbContext dbcontext)
+        private readonly ISysUserService _sysUser;
+        public GenerateTablesService(BuildingDbContext dbcontext, ISysUserService sysUser)
         {
             context = dbcontext;
+            _sysUser = sysUser;
         }
 
         public async Task<Response> CreateTable(GenerateTables model)
@@ -25,6 +30,11 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
+                SysUser sys = UserCacheHelper.GetSys();
+
+                //var con= RequestFilter.GetContext();
+                //model.SysUser = _sysUser.ResponseToken(new LoginRequestDTO() { Account = "yaogi", Password = "1" });
+                model.SysUser = UserCacheHelper.GetSys();
                 var data = await context.GenerateTables.Where(m => m.TableName == model.TableName).FirstOrDefaultAsync();
                 if (data != null)
                 {
