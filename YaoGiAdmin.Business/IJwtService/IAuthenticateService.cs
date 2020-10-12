@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models.Jwt;
 
 namespace YaoGiAdmin.Business.IJwtService

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models.Tools;
 
 namespace YaoGiAdmin.Business.IService

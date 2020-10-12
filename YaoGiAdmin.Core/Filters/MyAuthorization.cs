@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace YaoGiAdmin.Lib.Filters
+namespace YaoGiAdmin.Core.Filters
 {
     class MyAuthorization : IAuthorizationFilter
     {

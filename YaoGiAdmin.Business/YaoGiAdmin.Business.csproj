@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YaoGiAdmin.Lib\YaoGiAdmin.Lib.csproj" />
+    <ProjectReference Include="..\YaoGiAdmin.Core\YaoGiAdmin.Core.csproj" />
     <ProjectReference Include="..\YaoGiAdmin.Models\YaoGiAdmin.Models.csproj" />
   </ItemGroup>
 

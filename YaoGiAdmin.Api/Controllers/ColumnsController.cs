@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YaoGiAdmin.Business.IService;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models.Tools;
 
 namespace YaoGiAdmin.Api.Controllers

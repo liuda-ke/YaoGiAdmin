@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YaoGiAdmin.Business.IJwtService;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models.Jwt;
 
 namespace YaoGiAdmin.Api.Controllers

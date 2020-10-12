@@ -1,15 +1,13 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using YaoGiAdmin.Business.IJwtService;
 using YaoGiAdmin.Business.IService;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models;
 using YaoGiAdmin.Models.Common;
 using YaoGiAdmin.Models.Jwt;
@@ -76,7 +74,6 @@ namespace YaoGiAdmin.Business.JwtService
             var result = new { user = sys.UserName, token = token };
             res.Code = 1;
             res.Data = result;
-            UserCacheHelper.SetUser(sys);
 
             return res;
 
@@ -91,10 +88,10 @@ namespace YaoGiAdmin.Business.JwtService
             Response response = new Response();
             var Decryptjwt = new JwtSecurityTokenHandler().ReadJwtToken(token).Payload;
             response.Code = 1;
-            response.Data = Decryptjwt;
             response.Message = "成功";
             string jsonstr= JsonConvert.SerializeObject(Decryptjwt);
             SysUser sys = JsonConvert.DeserializeObject<SysUser>(jsonstr);
+            response.Data = sys;
             return response;
 
         }

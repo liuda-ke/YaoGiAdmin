@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YaoGiAdmin.Lib
+namespace YaoGiAdmin.Core
 {
     [Serializable]
     public class Response

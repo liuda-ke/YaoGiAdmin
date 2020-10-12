@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace YaoGiAdmin.Lib
+namespace YaoGiAdmin.Core
 {
     public class RequestFilter
     {

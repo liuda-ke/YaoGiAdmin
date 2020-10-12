@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace YaoGiAdmin.Lib
+namespace YaoGiAdmin.Core
 {
 
     public class MyExceptionFilter : ExceptionFilterAttribute

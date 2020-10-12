@@ -1,16 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using YaoGiAdmin.Business.IService;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models;
 using YaoGiAdmin.Models.Jwt;
-using YaoGiAdmin.Models.Sys;
 using YaoGiAdmin.Models.Tools;
 
 namespace YaoGiAdmin.Business.Service
@@ -30,11 +25,10 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
-                SysUser sys = UserCacheHelper.GetSys();
-
                 //var con= RequestFilter.GetContext();
-                //model.SysUser = _sysUser.ResponseToken(new LoginRequestDTO() { Account = "yaogi", Password = "1" });
-                model.SysUser = UserCacheHelper.GetSys();
+                model.SysUser = _sysUser.ResponseToken(new LoginRequestDTO() { Account = "yaogi", Password = "1" });
+                model.CreateUser = model.SysUser.UserName;
+                //model.SysUser = UserCacheHelper.GetSys();
                 var data = await context.GenerateTables.Where(m => m.TableName == model.TableName).FirstOrDefaultAsync();
                 if (data != null)
                 {
@@ -103,7 +97,7 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
-                var data = await context.GenerateTables.Where(m => m.IsDel == 0).ToListAsync();
+                var data = await context.GenerateTables.Include(n => n.SysUser).Where(m => m.IsDel == 0).ToListAsync();                
                 res.Data = data;
             }
             catch (Exception e)

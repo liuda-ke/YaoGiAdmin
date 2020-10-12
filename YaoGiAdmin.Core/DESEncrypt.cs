@@ -4,7 +4,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace YaoGiAdmin.Lib
+namespace YaoGiAdmin.Core
 {
     /// <summary>
     /// 加密/解密

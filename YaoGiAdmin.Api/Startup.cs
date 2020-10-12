@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Reflection;
 using System.Text;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models;
 using YaoGiAdmin.Models.Jwt;
 
@@ -96,7 +96,7 @@ namespace YaoGiAdmin.Api
             app.UseAuthentication();
             app.UseRouting();
             app.UseAuthorization();
-            UserCacheHelper.CreateInstance();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

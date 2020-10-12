@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace YaoGiAdmin.Lib
+namespace YaoGiAdmin.Core
 {
     public static class ValueConvert
     {

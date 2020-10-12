@@ -8,7 +8,7 @@ using YaoGiAdmin.Models.Sys;
 
 namespace YaoGiAdmin.Models.Common
 {
-    
+
     /// <summary>
     /// 通用字段实体
     /// </summary>
@@ -22,19 +22,15 @@ namespace YaoGiAdmin.Models.Common
         [Description("创建时间")]
         public DateTime CreateTime { get; set; } = DateTime.Now;
 
-        [Column(TypeName ="DATETIME")]
+        [Column(TypeName = "DATETIME")]
         [Description("修改时间")]
         public DateTime ModifyTime { get; set; } = DateTime.Now;
 
 
-        public  SysUser SysUser { get; set; }
-        
+        public SysUser SysUser { get; set; }
+
         [Column(TypeName = "NVARCHAR(50)")]
-        public string CreateUser 
-        {
-            get { return user.UserAccount; }
-            set {  user.UserAccount= value; }
-        }
+        public string CreateUser{get; set;}
 
         [Column(TypeName = "INT")]
         [DefaultValue(0)]
@@ -42,6 +38,6 @@ namespace YaoGiAdmin.Models.Common
 
 
 
-        
+
     }
 }

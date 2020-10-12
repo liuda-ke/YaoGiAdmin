@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YaoGiAdmin.Business.IJwtService;
 using YaoGiAdmin.Business.IService;
-using YaoGiAdmin.Lib;
+using YaoGiAdmin.Core;
 using YaoGiAdmin.Models.Jwt;
 using YaoGiAdmin.Models.Sys;
 
