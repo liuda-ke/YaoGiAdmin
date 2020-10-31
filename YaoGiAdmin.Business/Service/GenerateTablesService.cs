@@ -97,7 +97,7 @@ namespace YaoGiAdmin.Business.Service
             Response res = new Response();
             try
             {
-                var data = await context.GenerateTables.Include(n => n.SysUser).Where(m => m.IsDel == 0).ToListAsync();                
+                var data = await context.GenerateTables.Where(m => m.IsDel == 0).ToListAsync();                
                 res.Data = data;
             }
             catch (Exception e)
