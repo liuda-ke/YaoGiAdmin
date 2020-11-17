@@ -3,7 +3,7 @@
 	var createHandler = require('github-webhook-handler')
 	var handler = createHandler({
 	  path: '/pushCode',
-	  secret: '12345678'
+	  secret: '123456'
 	})
 	http.createServer(function (req, res) {
 	  handler(req, res, function (err) {
