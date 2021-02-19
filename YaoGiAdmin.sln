@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.Web", "YaoGiAdmi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.Api", "YaoGiAdmin.Api\YaoGiAdmin.Api.csproj", "{ECC00CA3-B27A-4C44-B4ED-B528587298DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.Vue", "YaoGiAdmin.Vue\YaoGiAdmin.Vue.csproj", "{998363A4-847C-4B2E-99C5-9651A1789D53}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.Models", "YaoGiAdmin.Models\YaoGiAdmin.Models.csproj", "{6938D43B-506D-4C80-B423-2EF2ACBCC7BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.Business", "YaoGiAdmin.Business\YaoGiAdmin.Business.csproj", "{91C2E256-20B6-446C-8E56-8C5D0F2A7A45}"
@@ -31,10 +29,6 @@ Global
 		{ECC00CA3-B27A-4C44-B4ED-B528587298DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECC00CA3-B27A-4C44-B4ED-B528587298DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECC00CA3-B27A-4C44-B4ED-B528587298DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{998363A4-847C-4B2E-99C5-9651A1789D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{998363A4-847C-4B2E-99C5-9651A1789D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{998363A4-847C-4B2E-99C5-9651A1789D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{998363A4-847C-4B2E-99C5-9651A1789D53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6938D43B-506D-4C80-B423-2EF2ACBCC7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6938D43B-506D-4C80-B423-2EF2ACBCC7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6938D43B-506D-4C80-B423-2EF2ACBCC7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
