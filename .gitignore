@@ -70,7 +70,6 @@ DesignTimeBuild/
 *.tlh
 *.tmp
 *.tmp_proj
-*_wpftmp.csproj
 *.log
 *.vspscc
 *.vssscc
