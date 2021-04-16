@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.CodeGenerate", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YaoGiAdmin.Core", "YaoGiAdmin.Core\YaoGiAdmin.Core.csproj", "{420E4DC7-03C4-491B-B9FE-F505374845B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YaoGiAdmin.Common", "YaoGiAdmin.Common\YaoGiAdmin.Common.csproj", "{50820CBB-C40A-4507-8777-2A4B06FD54D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{420E4DC7-03C4-491B-B9FE-F505374845B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{420E4DC7-03C4-491B-B9FE-F505374845B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{420E4DC7-03C4-491B-B9FE-F505374845B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50820CBB-C40A-4507-8777-2A4B06FD54D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50820CBB-C40A-4507-8777-2A4B06FD54D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50820CBB-C40A-4507-8777-2A4B06FD54D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50820CBB-C40A-4507-8777-2A4B06FD54D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
