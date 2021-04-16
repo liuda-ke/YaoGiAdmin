@@ -37,7 +37,7 @@ namespace YaoGiAdmin.Api.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<Response> UserLogin(string account, string password)
+        public async Task<Response> UserLogin([FromForm] string account, [FromForm] string password)
         {
             return await _sysUserService.UserLogin(account, password);
         }
