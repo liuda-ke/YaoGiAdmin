@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="RulesEngine" Version="3.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YaoGiAdmin.Core\YaoGiAdmin.Core.csproj" />
+  </ItemGroup>
+
 </Project>
