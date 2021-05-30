@@ -21,7 +21,7 @@ namespace YaoGiAdmin.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddDbContext<BuildingDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<BuildingDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SqlServer"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

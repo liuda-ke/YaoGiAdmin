@@ -62,7 +62,7 @@ namespace YaoGiAdmin.Api
             });
 
             services.AddSingleton(typeof(LoggerHelper));//◊¢»Î»’÷æ
-            services.AddDbContext<BuildingDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<BuildingDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SqlServer"]));
 
 
         }
